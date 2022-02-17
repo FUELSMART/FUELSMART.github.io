@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <head>
   <!--Provide the browser with meta data to control the page's scaling across different devices and browsers-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -16,29 +16,97 @@
 <body>
 
 <h1>FUELSMART</h1>
-<p>Hello</p>
-<div id="user" style="background-color: #00ccff;"></div>
+<canvas id="user" style="width:100%;max-width:600px;background-color:#00ccff"></canvas>
+<canvas id="elec1" style="width:100%;max-width:600px;background-color:#00ccff"></canvas>
+<canvas id="elec2" style="width:100%;max-width:600px;background-color:#00ccff"></canvas>
+<canvas id="elec3" style="width:100%;max-width:600px;background-color:#00ccff"></canvas>
 
 <script>
-var xArray = [50,60,70,80,90,100,110,120,130,140,150];
-var yArray = [7,8,8,9,9,9,10,11,14,14,15];
+var xValues = ['29/06', '21/07', '04/08', '17/09', '08/10', '27/11', '11/12', '20/01', '18/02'];
+var yValues = [125.02, 127.64, 130.89, 132.68, 134.84, 137.02, 139.92, 142.72, 144.87];
+var yValuesE1 = [30.01, 32.22, 36.64, 35.98, 32.78, 36.94, 36.80, 35.52, 34.02];
+var yValuesE2 = [32.01, 33.22, 32.64, 34.98, 33.78, 35.94, 33.80, 33.52, 32.02];
+var yValuesE3 = [31.01, 30.22, 29.64, 28.98, 29.78, 29.94, 30.80, 31.52, 30.02];
 
-// Define Data
-var data = [{
-  x: xArray,
-  y: yArray,
-  mode:"lines"
-}];
-
-// Define Layout
-var layout = {
-  xaxis: {range: [40, 160], title: "Square Meters"},
-  yaxis: {range: [5, 16], title: "Price in Millions"},  
-  title: "House Prices vs. Size"
-};
-
-// Display using Plotly
-Plotly.newPlot("user", data, layout);
+new Chart("user", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{
+      fill: false,
+      lineTension: 0,
+      backgroundColor: "black",
+      borderColor: "black",
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    scales: {
+      yAxes: [{ticks: {min: 0, max:200}}],
+    }
+  }
+});
+  
+new Chart("elec1", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{
+      fill: false,
+      lineTension: 0,
+      backgroundColor: "black",
+      borderColor: "yellow",
+      data: yValuesE1
+    }]
+  },
+  options: {
+    legend: {display: false},
+    scales: {
+      yAxes: [{ticks: {min: 0, max:200}}],
+    }
+  }
+});
+  
+new Chart("elec2", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{
+      fill: false,
+      lineTension: 0,
+      backgroundColor: "yellow",
+      borderColor: "yellow",
+      data: yValuesE2
+    }]
+  },
+  options: {
+    legend: {display: false},
+    scales: {
+      yAxes: [{ticks: {min: 0, max:200}}],
+    }
+  }
+});
+  
+new Chart("elec3", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{
+      fill: false,
+      lineTension: 0,
+      backgroundColor: "yellow",
+      borderColor: "yellow",
+      data: yValuesE3
+    }]
+  },
+  options: {
+    legend: {display: false},
+    scales: {
+      yAxes: [{ticks: {min: 0, max:200}}],
+    }
+  }
+});
 </script>
 
 <a href="index.html" class="button">Back</a>
