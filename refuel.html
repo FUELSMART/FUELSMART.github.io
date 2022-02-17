@@ -15,15 +15,15 @@
 <body>
 
 <h1>FUELSMART</h1>
-<form id="fuelinput" action="/action_page.php">
+<form id="fuelinput">
   Price paid for fuel: <input type="text" name="fprice"><br>
-  <input type="button" onclick="myFunction()" value="Enter">
+  <input type="button" onclick="priceFunction()" value="Enter">
 </form>
 
 <p id="totalPrice">Total price spent on fuel: </p>
 
 <script>
-function myFunction() {
+function priceFunction() {
   var input = document.getElementById("fuelinput").submit();
   document.getElementById("totalPrice").innerHTML += input;
 }
