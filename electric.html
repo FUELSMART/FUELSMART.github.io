@@ -16,9 +16,13 @@
 <body>
 
 <h1>FUELSMART</h1>
+Current fuel spending:
 <canvas id="user" style="width:100%;max-width:600px;background-color:#00ccff"></canvas>
+Electric Alternative Model X:
 <canvas id="elec1" style="width:100%;max-width:600px;background-color:#00ccff"></canvas>
+Electric Alternative Model Y:
 <canvas id="elec2" style="width:100%;max-width:600px;background-color:#00ccff"></canvas>
+Electric Alternative Model Z:
 <canvas id="elec3" style="width:100%;max-width:600px;background-color:#00ccff"></canvas>
 
 <script>
@@ -55,7 +59,7 @@ new Chart("elec1", {
     datasets: [{
       fill: false,
       lineTension: 0,
-      backgroundColor: "black",
+      backgroundColor: "yellow",
       borderColor: "yellow",
       data: yValuesE1
     }]
